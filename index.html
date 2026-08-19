@@ -1,35 +1,63 @@
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
+    <!-- यह लाइन ब्राउज़र को बताती है कि हम हिंदी भाषा का उपयोग कर रहे हैं -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>मेरी पहली लाइव वेबसाइट</title>
+    
+    <!-- <style> टैग के अंदर वेबसाइट को सुंदर बनाने का काम (CSS) होता है -->
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f2f5;
+            font-family: Arial, sans-serif; /* अक्षरों का स्टाइल */
+            text-align: center; /* सब कुछ स्क्रीन के बीच में (Center) रखने के लिए */
+            background-color: #f0f2f5; /* पूरी स्क्रीन का हल्का बैकग्राउंड रंग */
             color: #333;
             padding: 50px;
         }
         .card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: white; /* बीच वाले बॉक्स का सफेद रंग */
+            padding: 30px; /* बॉक्स के अंदर खाली जगह */
+            border-radius: 10px; /* बॉक्स के कोनों को गोल करने के लिए */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* बॉक्स के पीछे हल्की परछाई (Shadow) */
             display: inline-block;
         }
-        h1 { color: #b41d1d; }
-        p { font-size: 18px; }
+        h1 { color: #b41d1d; } /* आपकी मुख्य हेडिंग का लाल/हरा रंग */
+        p { font-size: 18px; } /* नॉर्मल टेक्स्ट का साइज */
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>🎉 बधाई हो! मेरी वेबसाइट लाइव है!</h1>
-        <p style="font-weight: bold; color: #007acc;">द्वारा निर्मित: ps0625728-max</p>
-<button onclick="alert('नमस्ते वर्ल्ड!')" style="background-color: #007acc; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 10px;">मुझे क्लिक करें!</button>
 
+    <!-- यहाँ से आपका असली बॉक्स (Card) शुरू होता है जो स्क्रीन पर दिखता है -->
+    <div class="card">
+        
+        <!-- 1. मुख्य हेडिंग -->
+        <h1>🎉 बधाई हो! मेरी वेबसाइट लाइव है!</h1>
+        
+        <!-- 2. आपका नाम (नीले रंग में और बोल्ड) -->
+        <p style="font-weight: bold; color: #007acc;">द्वारा निर्मित: ps0625728-max</p>
+        
+        <!-- 3. आपकी गोल प्रोफाइल फोटो -->
+        <!-- (src के अंदर इंटरनेट की इमेज का लिंक है, और style से इसे गोल किया गया है) -->
+        <br>
+        <img src="https://picsum.photos" alt="Profile Picture" style="border-radius: 50%; border: 3px solid #007acc; margin-top: 15px; width: 120px; height: 120px; object-fit: cover;">
+        <br>
+
+        <!-- 4. पहला नीला बटन (जिस पर क्लिक करने से 'नमस्ते वर्ल्ड' का अलर्ट आता है) -->
+        <button onclick="alert('नमस्ते वर्ल्ड!')" style="background-color: #007acc; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 20px;">मुझे क्लिक करें!</button>
+        <br>
+
+        <!-- 5. दूसरा लाल बटन (यह एक लिंक है, इस पर क्लिक करने से Google खुलता है) -->
+        <!-- (href के अंदर आप अपना YouTube या Instagram का लिंक भी डाल सकते हैं) -->
+        <a href="https://google.com" target="_blank" style="text-decoration: none;">
+            <button style="background-color: #ff0000; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 15px; font-weight: bold;">मेरा पसंदीदा लिंक 🚀</button>
+        </a>
+
+        <!-- 6. नीचे लिखा हुआ छोटा सा पैराग्राफ -->
         <p>मैंने इसे VS Code और GitHub की मदद से मुफ्त में होस्ट किया है।</p>
+        
     </div>
+
 </body>
 </html>
