@@ -1,60 +1,196 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-    <!-- यह लाइन ब्राउज़र को बताती है कि हम हिंदी भाषा का उपयोग कर रहे हैं -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>मेरी पहली लाइव वेबसाइट</title>
+    <title>My All-in-One Website</title>
     
-    <!-- <style> टैग के अंदर वेबसाइट को सुंदर बनाने का काम (CSS) होता है -->
+    <!-- CSS (Style) यहाँ है -->
     <style>
+        /* General Layout & Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         body {
-            font-family: Arial, sans-serif; /* अक्षरों का स्टाइल */
-            text-align: center; /* सब कुछ स्क्रीन के बीच में (Center) रखने के लिए */
-            background-color: #f0f2f5; /* पूरी स्क्रीन का हल्का बैकग्राउंड रंग */
+            background-color: #f4f7f6;
             color: #333;
-            padding: 50px;
         }
-        .card {
-            background: white; /* बीच वाले बॉक्स का सफेद रंग */
-            padding: 30px; /* BOX के अंदर खाली जगह */
-            border-radius: 10px; /* बॉक्स के कोनों को गोल करने के लिए */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* बॉक्स के पीछे हल्की परछाई (Shadow) */
-            display: inline-block;
+
+        /* Navbar Style */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
-        h1 { color: #b41d1d; } /* आपकी मुख्य हेडिंग का लाल/हरा रंग */
-        p { font-size: 18px; } /* नॉर्मल टेक्स्ट का साइज */
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        .cta-btn {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btn {
+            padding: 12px 30px;
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .hero-btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* Contact Form Section */
+        .contact-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-form button {
+            padding: 12px;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .contact-form button:hover {
+            background-color: #1a252f;
+        }
     </style>
 </head>
 <body>
 
-    <!-- यहाँ से आपका असली बॉक्स (Card) शुरू होता है जो स्क्रीन पर दिखता है -->
-    <div class="card">
-        
-        <!-- 1. मुख्य हेडिंग -->
-        <h1>🎉 बधाई हो! मेरी वेबसाइट लाइव है!</h1>
-        
-        <!-- 2. आपका नाम (नीले रंग में और बोल्ड) -->
-        <p style="font-weight: bold; color: #007acc;">द्वारा निर्मित: ps0625728-max</p>
-        
-        <!-- 3. आपकी गोल प्रोफाइल फोटो (इसे पूरी तरह ठीक कर दिया गया है) -->
-        <br>
-        <img src="https://picsum.photos" alt="Profile Picture" style="border-radius: 50%; border: 3px solid #007acc; margin-top: 15px; width: 120px; height: 120px; object-fit: cover;">
-        <br>
+    <!-- HTML (Structure) यहाँ है -->
+    
+    <!-- Header / Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">MyBrand</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="cta-btn" onclick="welcomeAlert()">Get Started</button>
+    </header>
 
-        <!-- 4. पहला नीला बटन (जिस पर क्लिक करने से 'नमस्ते वर्ल्ड' का अलर्ट आता है) -->
-        <button onclick="alert('नमस्ते वर्ल्ड!')" style="background-color: #007acc; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 20px;">मुझे क्लिक करें!</button>
-        <br>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to My Website</h1>
+            <p>We create beautiful, functional, and modern websites tailored to your business needs.</p>
+            <a href="#contact" class="hero-btn">Contact Us Now</a>
+        </div>
+    </section>
 
-        <!-- 5. दूसरा लाल बटन (यह एक लिंक है, इस पर क्लिक करने से Google खुलता है) -->
-        <a href="https://google.com" target="_blank" style="text-decoration: none;">
-            <button style="background-color: #ff0000; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 15px; font-weight: bold;">मेरा पसंदीदा लिंक 🚀</button>
-        </a>
+    <!-- Contact Form Section -->
+    <section id="contact" class="contact-section">
+        <h2>Connect With Us</h2>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message Sent Successfully!');">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
 
-        <!-- 6. नीचे लिखा हुआ छोटा सा पैराग्राफ -->
-        <p>मैंने इसे VS Code और GitHub की मदद से मुफ्त में होस्ट किया है।</p>
-        
-    </div>
-
+    <!-- JavaScript (Action) यहाँ है -->
+    <script>
+        function welcomeAlert() {
+            alert("Welcome to MyBrand! Thank you for showing interest.");
+        }
+    </script>
 </body>
 </html>
