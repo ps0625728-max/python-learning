@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rate List & Services Website</title>
-    
-    <!-- CSS (Style) यहाँ है -->
+    <title>Furniture Price & Quotation List</title>
     <style>
         /* General Layout & Reset */
         * {
@@ -16,9 +14,8 @@
         }
 
         body {
-            background-color: #f4f7f6;
+            background-color: #f8f9fa;
             color: #333;
-            scroll-behavior: smooth;
         }
 
         /* Navbar Style */
@@ -27,336 +24,262 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 10%;
-            background-color: #ffffff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            background-color: #3e2723; /* Wooden Brown Theme */
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .logo {
             font-size: 24px;
             font-weight: bold;
-            color: #2c3e50;
+            letter-spacing: 1px;
         }
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-        }
-
-        .nav-links li {
-            margin: 0 20px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #555;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #3498db;
-        }
-
-        .cta-btn {
+        .contact-btn {
             padding: 10px 20px;
-            background-color: #3498db;
+            background-color: #d84315;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background-color: #bf360c;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
+            background: linear-gradient(rgba(62, 39, 35, 0.85), rgba(62, 39, 35, 0.85)), url('https://unsplash.com') no-repeat center center/cover;
             color: white;
-            height: 50vh;
+            height: 35vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 0 20px;
         }
 
-        .hero-content h1 {
-            font-size: 48px;
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: #ffccbc;
+        }
+
+        /* Search & Filter Section */
+        .search-container {
+            max-width: 900px;
+            margin: 30px auto 10px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .search-box {
+            flex: 1;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #bcaaa4;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-box:focus {
+            border-color: #3e2723;
+        }
+
+        /* 📋 Table Section */
+        .table-container {
+            max-width: 900px;
+            margin: 10px auto 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow-x: auto;
+        }
+
+        .quotation-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .quotation-table th {
+            background-color: #4e342e;
+            color: white;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .quotation-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 15px;
+        }
+
+        .quotation-table tr:hover {
+            background-color: #efebe9;
+        }
+
+        .price-col {
+            font-weight: bold;
+            color: #d84315;
+            font-size: 16px;
+        }
+
+        /* Footer / Contact Section */
+        .footer-contact {
+            background-color: #2d1a12;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .footer-contact h2 {
+            margin-bottom: 15px;
+        }
+
+        .footer-contact p {
+            color: #bcaaa4;
             margin-bottom: 20px;
         }
 
-        .hero-content p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-btn {
+        .call-now {
+            display: inline-block;
             padding: 12px 30px;
-            background-color: #e74c3c;
+            background-color: #2ecc71;
             color: white;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .hero-btn:hover {
-            background-color: #c0392b;
-        }
-
-        /* 📊 Rate List / Pricing Section */
-        .pricing-section {
-            padding: 60px 10%;
-            text-align: center;
-            background-color: #ffffff;
-        }
-
-        .pricing-section h2 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-
-        .pricing-section p.subtitle {
-            color: #7f8c8d;
-            margin-bottom: 40px;
             font-size: 16px;
-        }
-
-        .pricing-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .price-card {
-            background: #f9f9f9;
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 40px 30px;
-            width: 300px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-        }
-
-        .price-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        /* Popular Plan Highlight */
-        .price-card.popular {
-            border: 2px solid #3498db;
-            background: #ffffff;
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
-        }
-
-        .badge {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #3498db;
-            color: white;
-            padding: 5px 15px;
-            font-size: 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-
-        .price-card h3 {
-            font-size: 22px;
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-
-        .price-card .price {
-            font-size: 32px;
-            font-weight: bold;
-            color: #3498db;
-            margin-bottom: 25px;
-        }
-
-        .price-card .price span {
-            font-size: 16px;
-            color: #7f8c8d;
-            font-weight: normal;
-        }
-
-        .features-list {
-            list-style: none;
-            margin-bottom: 30px;
-            text-align: left;
-        }
-
-        .features-list li {
-            margin-bottom: 12px;
-            color: #555;
-            font-size: 15px;
-        }
-
-        .features-list li::before {
-            content: "✓ ";
-            color: #2ecc71;
-            font-weight: bold;
-            margin-right: 5px;
-        }
-
-        .features-list li.disabled {
-            color: #bdc3c7;
-            text-decoration: line-through;
-        }
-
-        .features-list li.disabled::before {
-            content: "✕ ";
-            color: #e74c3c;
-        }
-
-        .plan-btn {
-            width: 100%;
-            padding: 12px;
-            background-color: #2c3e50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .price-card.popular .plan-btn {
-            background-color: #3498db;
-        }
-
-        .plan-btn:hover {
-            background-color: #111;
-        }
-
-        /* Contact Form Section */
-        .contact-section {
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .contact-section h2 {
-            margin-bottom: 30px;
-            color: #2c3e50;
-        }
-
-        .contact-form {
-            max-width: 500px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .contact-form button {
-            padding: 12px;
-            background-color: #2c3e50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .contact-form button:hover {
-            background-color: #1a252f;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navigation Bar -->
+    <!-- Header -->
     <header class="navbar">
-        <div class="logo">MyBrand</div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#rates">Rate List</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <button class="cta-btn" onclick="welcomeAlert()">Get Started</button>
+        <div class="logo">🪑 Royal Furniture</div>
+        <button class="contact-btn" onclick="scrollToContact()">Get Custom Quote</button>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Our Transparent Pricing</h1>
-            <p>Choose the perfect plan that fits your business needs. No hidden charges.</p>
-            <a href="#rates" class="hero-btn">View Rate List</a>
-        </div>
+        <h1>Furniture Quotation & Price List</h1>
+        <p>Premium quality wooden furniture at best wholesale rates</p>
     </section>
 
-    <!-- 📊 Rate List Section -->
-    <section id="rates" class="pricing-section">
-        <h2>Our Rate List</h2>
-        <p class="subtitle">Fair and affordable pricing for everyone</p>
-        
-        <div class="pricing-container">
-            <!-- Plan 1 -->
-            <div class="price-card">
-                <h3>Basic Plan</h3>
-                <div class="price">₹999 <span>/ month</span></div>
-                <ul class="features-list">
-                    <li>1 Website Design</li>
-                    <li>Standard Support</li>
-                    <li>Free Domain (1 Year)</li>
-                    <li class="disabled">SEO Optimization</li>
-                    <li class="disabled">24/7 Premium Call Support</li>
-                </ul>
-                <button class="plan-btn" onclick="selectPlan('Basic')">Choose Plan</button>
-            </div>
+    <!-- Search Bar Section -->
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-box" placeholder="यहाँ फ़र्नीचर का नाम सर्च करें... (e.g. Bed, Sofa, Dining)" onkeyup="searchFurniture()">
+    </div>
 
-            <!-- Plan 2 (Popular) -->
-            <div class="price-card popular">
-                <div class="badge">Most Popular</div>
-                <h3>Standard Plan</h3>
-                <div class="price">₹2,499 <span>/ month</span></div>
-                <ul class="features-list">
-                    <li>3 Website Designs</li>
-                    <li>Priority Email Support</li>
-                    <li>Free Domain + Hosting</li>
-                    <li>Basic SEO Optimization</li>
-                    <li class="disabled">24/7 Premium Call Support</li>
-                </ul>
-                <button class="plan-btn" onclick="selectPlan('Standard')">Choose Plan</button>
-            </div>
+    <!-- 📊 Quotation Table Section -->
+    <div class="table-container">
+        <table class="quotation-table" id="furnitureTable">
+            <thead>
+                <tr>
+                    <th>Furniture Item (फ़र्नीचर का नाम)</th>
+                    <th>Material / Specification</th>
+                    <th>Price (अनुमानित मूल्य)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Luxury King Size Bed</td>
+                    <td>Teak Wood with Storage (सागवान लकड़ी)</td>
+                    <td class="price-col">₹2,30,000</td>
+                </tr>
+                <tr>
+                    <td>Premium Queen Size Bed</td>
+                    <td>Sheesham Wood (शीशम लकड़ी)</td>
+                    <td class="price-col">₹1,45,000</td>
+                </tr>
+                <tr>
+                    <td>L-Shape Premium Sofa Set</td>
+                    <td>7 Seater with Fabric Cushions</td>
+                    <td class="price-col">₹85,000</td>
+                </tr>
+                <tr>
+                    <td>Wooden Dining Table Set</td>
+                    <td>6 Seater with Glass Top</td>
+                    <td class="price-col">₹65,000</td>
+                </tr>
+                <tr>
+                    <td>Luxury Wardrobe (Almirah)</td>
+                    <td>4-Door with Mirror Setup</td>
+                    <td class="price-col">₹55,000</td>
+                </tr>
+                <tr>
+                    <td>Modular Kitchen Cabinets</td>
+                    <td>Waterproof Ply with Sunmica (Per Sq.Ft)</td>
+                    <td class="price-col">₹1,200</td>
+                </tr>
+                <tr>
+                    <td>Dressing Table</td>
+                    <td>Modern Design with LED Lights</td>
+                    <td class="price-col">₹18,500</td>
+                </tr>
+                <tr>
+                    <td>Center Coffee Table</td>
+                    <td>Solid Wood with Glass Top</td>
+                    <td class="price-col">₹12,000</td>
+                </tr>
+                <tr>
+                    <td>Office Study Table</td>
+                    <td>With Drawers & Keyboard Tray</td>
+                    <td class="price-col">₹8,500</td>
+                </tr>
+                <tr>
+                    <td>TV Entertainment Unit</td>
+                    <td>Wall Mounted Modern Design</td>
+                    <td class="price-col">₹24,000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-            <!-- Plan 3 -->
-            <div class="price-card">
-                <h3>Premium Plan</h3>
-                <div class="price">₹4,999 <span>/ month</span></div>
-                <ul class="features-list">
-                    <li>Unlimited Designs</li>
-                    <li>Dedicated Manager</li>
-                    <li>Free Domain + Cloud Hosting</li>
-                    <li>Advanced SEO Setup</li>
-                    <li>24/7 Premium Call Support</li>
-                </ul>
-                <button class="plan-btn" onclick="selectPlan('Premium')">Choose Plan</button>
-            </div>
-        </div>
+    <!-- Contact Section -->
+    <section id="contactSection" class="footer-contact">
+        <h2>क्या आपको कस्टमाइज़्ड फ़र्नीचर चाहिए?</h2>
+        <p>अपनी पसंद के हिसाब से साइज़ और डिज़ाइन बदलवाने के लिए हमसे अभी संपर्क करें।</p>
+        <a href="tel:+919999999999" class="call-now">📞 Call Now: +91 99999 99999</a>
     </section>
 
-    <!-- Contact Form Section -->
-    <section id="contact" class="contact-section">
-        <h2>Connect With Us</h2>
+    <!-- JavaScript For Live Search & Action -->
+    <script>
+        function searchFurniture() {
+            let input = document.getElementById("searchInput").value.toUpperCase();
+            let table = document.getElementById("furnitureTable");
+            let tr = table.getElementsByTagName("tr");
+
+            for (let i = 1; i < tr.length; i++) {
+                let td = tr[i].getElementsByTagName("td")[0]; // Furniture Column
+                if (td) {
+                    let textValue = td.textContent || td.innerText;
+                    if (textValue.toUpperCase().indexOf(input) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function scrollToContact() {
+            document.getElementById('contactSection').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
