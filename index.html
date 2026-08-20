@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My All-in-One Website</title>
+    <title>Rate List & Services Website</title>
     
     <!-- CSS (Style) यहाँ है -->
     <style>
@@ -18,6 +18,7 @@
         body {
             background-color: #f4f7f6;
             color: #333;
+            scroll-behavior: smooth;
         }
 
         /* Navbar Style */
@@ -28,6 +29,9 @@
             padding: 20px 10%;
             background-color: #ffffff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .logo {
@@ -70,7 +74,7 @@
         .hero {
             background: linear-gradient(135deg, #2c3e50, #3498db);
             color: white;
-            height: 60vh;
+            height: 50vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -103,6 +107,136 @@
 
         .hero-btn:hover {
             background-color: #c0392b;
+        }
+
+        /* 📊 Rate List / Pricing Section */
+        .pricing-section {
+            padding: 60px 10%;
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        .pricing-section h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .pricing-section p.subtitle {
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .price-card {
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 40px 30px;
+            width: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Popular Plan Highlight */
+        .price-card.popular {
+            border: 2px solid #3498db;
+            background: #ffffff;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+        }
+
+        .badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #3498db;
+            color: white;
+            padding: 5px 15px;
+            font-size: 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .price-card h3 {
+            font-size: 22px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .price-card .price {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 25px;
+        }
+
+        .price-card .price span {
+            font-size: 16px;
+            color: #7f8c8d;
+            font-weight: normal;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .features-list li {
+            margin-bottom: 12px;
+            color: #555;
+            font-size: 15px;
+        }
+
+        .features-list li::before {
+            content: "✓ ";
+            color: #2ecc71;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .features-list li.disabled {
+            color: #bdc3c7;
+            text-decoration: line-through;
+        }
+
+        .features-list li.disabled::before {
+            content: "✕ ";
+            color: #e74c3c;
+        }
+
+        .plan-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .price-card.popular .plan-btn {
+            background-color: #3498db;
+        }
+
+        .plan-btn:hover {
+            background-color: #111;
         }
 
         /* Contact Form Section */
@@ -150,16 +284,13 @@
 </head>
 <body>
 
-    <!-- HTML (Structure) यहाँ है -->
-    
     <!-- Header / Navigation Bar -->
     <header class="navbar">
         <div class="logo">MyBrand</div>
         <nav>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
+                <li><a href="#rates">Rate List</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -169,28 +300,63 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Welcome to My Website</h1>
-            <p>We create beautiful, functional, and modern websites tailored to your business needs.</p>
-            <a href="#contact" class="hero-btn">Contact Us Now</a>
+            <h1>Our Transparent Pricing</h1>
+            <p>Choose the perfect plan that fits your business needs. No hidden charges.</p>
+            <a href="#rates" class="hero-btn">View Rate List</a>
+        </div>
+    </section>
+
+    <!-- 📊 Rate List Section -->
+    <section id="rates" class="pricing-section">
+        <h2>Our Rate List</h2>
+        <p class="subtitle">Fair and affordable pricing for everyone</p>
+        
+        <div class="pricing-container">
+            <!-- Plan 1 -->
+            <div class="price-card">
+                <h3>Basic Plan</h3>
+                <div class="price">₹999 <span>/ month</span></div>
+                <ul class="features-list">
+                    <li>1 Website Design</li>
+                    <li>Standard Support</li>
+                    <li>Free Domain (1 Year)</li>
+                    <li class="disabled">SEO Optimization</li>
+                    <li class="disabled">24/7 Premium Call Support</li>
+                </ul>
+                <button class="plan-btn" onclick="selectPlan('Basic')">Choose Plan</button>
+            </div>
+
+            <!-- Plan 2 (Popular) -->
+            <div class="price-card popular">
+                <div class="badge">Most Popular</div>
+                <h3>Standard Plan</h3>
+                <div class="price">₹2,499 <span>/ month</span></div>
+                <ul class="features-list">
+                    <li>3 Website Designs</li>
+                    <li>Priority Email Support</li>
+                    <li>Free Domain + Hosting</li>
+                    <li>Basic SEO Optimization</li>
+                    <li class="disabled">24/7 Premium Call Support</li>
+                </ul>
+                <button class="plan-btn" onclick="selectPlan('Standard')">Choose Plan</button>
+            </div>
+
+            <!-- Plan 3 -->
+            <div class="price-card">
+                <h3>Premium Plan</h3>
+                <div class="price">₹4,999 <span>/ month</span></div>
+                <ul class="features-list">
+                    <li>Unlimited Designs</li>
+                    <li>Dedicated Manager</li>
+                    <li>Free Domain + Cloud Hosting</li>
+                    <li>Advanced SEO Setup</li>
+                    <li>24/7 Premium Call Support</li>
+                </ul>
+                <button class="plan-btn" onclick="selectPlan('Premium')">Choose Plan</button>
+            </div>
         </div>
     </section>
 
     <!-- Contact Form Section -->
     <section id="contact" class="contact-section">
         <h2>Connect With Us</h2>
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message Sent Successfully!');">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-
-    <!-- JavaScript (Action) यहाँ है -->
-    <script>
-        function welcomeAlert() {
-            alert("Welcome to MyBrand! Thank you for showing interest.");
-        }
-    </script>
-</body>
-</html>
