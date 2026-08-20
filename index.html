@@ -182,7 +182,7 @@
 
     <!-- Search Bar Section -->
     <div class="search-container">
-        <input type="text" id="searchInput" class="search-box" placeholder="यहाँ फ़र्नीचर का नाम सर्च करें... (e.g. Bed, Sofa, Dining)" onkeyup="searchFurniture()">
+        <input type="text" id="searchInput" class="search-box" placeholder="यहाँ फ़र्नीचर का नाम सर्च करें... (e.g. Bed, Sofa, Chair, Almirah)" onkeyup="searchFurniture()">
     </div>
 
     <!-- 📊 Quotation Table Section -->
@@ -207,6 +207,11 @@
                     <td class="price-col">₹1,45,000</td>
                 </tr>
                 <tr>
+                    <td>Wooden Diwan Bed</td>
+                    <td>Solid Wood with Carving Work Single Bed</td>
+                    <td class="price-col">₹35,000</td>
+                </tr>
+                <tr>
                     <td>L-Shape Premium Sofa Set</td>
                     <td>7 Seater with Fabric Cushions</td>
                     <td class="price-col">₹85,000</td>
@@ -218,18 +223,28 @@
                 </tr>
                 <tr>
                     <td>Luxury Wardrobe (Almirah)</td>
-                    <td>4-Door with Mirror Setup</td>
-                    <td class="price-col">₹55,000</td>
+                    <td>3-Door Engineered Wood with Mirror Setup</td>
+                    <td class="price-col">₹45,000</td>
                 </tr>
                 <tr>
-                    <td>Modular Kitchen Cabinets</td>
-                    <td>Waterproof Ply with Sunmica (Per Sq.Ft)</td>
-                    <td class="price-col">₹1,200</td>
+                    <td>Premium Royal Almirah</td>
+                    <td>4-Door Heavy Teak Wood (सागवान लकड़ी)</td>
+                    <td class="price-col">₹95,000</td>
                 </tr>
                 <tr>
                     <td>Dressing Table</td>
-                    <td>Modern Design with LED Lights</td>
+                    <td>Modern Design with LED Lights & Bangles Drawer</td>
                     <td class="price-col">₹18,500</td>
+                </tr>
+                <tr>
+                    <td>Wooden High-Back Chairs</td>
+                    <td>Set of 2 Cushion Chairs for Living Room</td>
+                    <td class="price-col">₹14,000</td>
+                </tr>
+                <tr>
+                    <td>Premium Wooden Rocking Chair</td>
+                    <td>Sheesham Wood Comfort Chair (आराम कुर्सी)</td>
+                    <td class="price-col">₹9,500</td>
                 </tr>
                 <tr>
                     <td>Center Coffee Table</td>
@@ -245,6 +260,16 @@
                     <td>TV Entertainment Unit</td>
                     <td>Wall Mounted Modern Design</td>
                     <td class="price-col">₹24,000</td>
+                </tr>
+                <tr>
+                    <td>Wooden Shoe Rack</td>
+                    <td>3-Tier Closed Cabinet with Sitting Cushion</td>
+                    <td class="price-col">₹7,500</td>
+                </tr>
+                <tr>
+                    <td>Modular Kitchen Cabinets</td>
+                    <td>Waterproof Ply with Sunmica (Per Sq.Ft)</td>
+                    <td class="price-col">₹1,200</td>
                 </tr>
             </tbody>
         </table>
@@ -265,9 +290,9 @@
             let tr = table.getElementsByTagName("tr");
 
             for (let i = 1; i < tr.length; i++) {
-                let td = tr[i].getElementsByTagName("td")[0]; // Furniture Column
+                let td = tr[i].getElementsByTagName("td"); 
                 if (td) {
-                    let textValue = td.textContent || td.innerText;
+                    let textValue = tr[i].textContent || tr[i].innerText;
                     if (textValue.toUpperCase().indexOf(input) > -1) {
                         tr[i].style.display = "";
                     } else {
